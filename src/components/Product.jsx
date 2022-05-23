@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Product() {
+export default function Product( {product : {id, name, productType, author, price, description, image, rating}}){
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -64,27 +64,27 @@ export default function Product() {
             variant='h5'
             color='textSecondary'
           >
-            {accounting.formatMoney(50)} 
+            {accounting.formatMoney(price)} 
           </Typography> 
         }
-        title="Book"
+        title={name}
         subheader="in stock"
       />
       <CardMedia
         className={classes.media}
-        image="https://edicionesencuentro.com/wp-content/uploads/2019/10/9788499200491.jpg"
-        title="Calixta"
+        image={image}
+        title={name}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          Novela
+          {productType}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to cart">
           <AddShoppingCart fontSize='large'/>
         </IconButton>
-        {Array(4)
+        {Array(rating)
           .fill()
           .map((_, i) => (
             <p>&#11088;</p>
@@ -103,8 +103,7 @@ export default function Product() {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>"Calixta es una novela histórica centrada en el África de mediados del siglo III. En ella pretendió John Henry Newman retratar la vida de los primeros cristianos y sus relaciones con el mundo pagano a través de personajes que representan una familia media: Agelio, Juba Jucundus; sus amigos, la bella Calixta y Aristón, fabricantes de ídolos y objetos de culto paganos; y la decaída comunidad cristiana, con san Cipriano y los cristianos, amenazados y vigorizados por la persecución de Decio."
-          </Typography>
+          <Typography paragraph>{description}</Typography>
         </CardContent>
       </Collapse>
     </Card>

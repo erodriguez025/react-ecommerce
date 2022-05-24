@@ -10,6 +10,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import accounting from 'accounting';
 import { red } from '@material-ui/core/colors';
+import { useStateValue }  from '../StateProvider';
+import { actionTypes }  from '../reducer';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -39,10 +41,16 @@ export default function CheckoutCard( {
 }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
+  const [{basket}, dispatch] = useStateValue();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const removeItem = () => dispatch({
+    type: actionTypes.REMOVE_ITEM,
+    id: id,
+  })
 
   return (
     <Card className={classes.root}>
@@ -69,7 +77,7 @@ export default function CheckoutCard( {
             ))}
         </div>
         <IconButton>
-          <DeleteIcon sontSize="large"/>
+          <DeleteIcon sontSize="large" onClick={removeItem}/>
         </IconButton>
       </CardActions>
     </Card>

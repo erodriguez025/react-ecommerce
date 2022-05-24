@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import products from '../product-data';
-import CheckoutCard from "./CheckoutCard";
 import { Typography } from '@material-ui/core';
+import CheckoutCard from "./CheckoutCard";
+import products from '../product-data';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  root: { 
     flexGrow: 1,
     padding: "2rem",
   }
@@ -14,6 +14,8 @@ const useStyles = makeStyles((theme) => ({
 
 const CheckoutPage = () => {
   const classes = useStyles();
+  //const [{ basket }, dispatch ]  = useStateValue();
+
 
   function FormRow() {
     return (
@@ -40,7 +42,7 @@ return (
         <FormRow/>
       </Grid>  
 
-      <Grid item xs={12}>
+      <Grid item xs={12} sm={4} md={3}>
         <Typography align="center" gutterBottom variant="h4">
           Total
         </Typography>
@@ -49,3 +51,5 @@ return (
   </div>
 );
 };
+
+export default CheckoutPage;

@@ -57,14 +57,14 @@ export default function Product( {product : {id, name, productType, author, pric
     dispatch({
       type: actionTypes.ADD_TO_BASKET,
       item: {
-        id,
-        name,
-        productType,
-        author,
-        image,
-        price,
-        rating,
-        description,
+        id: id,
+        name: name,
+        productType: productType,
+        author: author,
+        image: image,
+        price: price,
+        rating: rating,
+        description: description,
       }
     })
   }

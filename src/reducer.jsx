@@ -3,7 +3,7 @@ export const initialState = {
 }
 
 export const actionTypes = {
-    ADD_TO_BASKET: "ADD_TI_BASKET"
+    ADD_TO_BASKET: "ADD_TO_BASKET"
 }
 
 const reducer = (state, action)=> {

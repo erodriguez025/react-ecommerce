@@ -13,7 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouteLink, useHistory } from "react-router-dom";
-import { useState } from 'react';
+import { useState, useStyles } from 'react';
+import { auth } from "../firebase";
 
 function Copyright(props) {
   return (
@@ -31,9 +32,22 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
+
+    const signup = (e) => {
+      e.preventDefault();
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((auth) => {
+          console.log(auth);
+          if (auth) {
+            history.push("/");
+          }
+        })
+        .catch((err) => alert(err.message));
+    };
 
 
   const handleSubmit = (event) => {
@@ -123,7 +137,7 @@ export default function SignUp() {
               fullWidth
               variant='contained'
               color='primary'
-              
+              onClick={signup}
             >
               Sign Up
             </Button>

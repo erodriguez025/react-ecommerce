@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouteLink, useHistory } from "react-router-dom";
+import { useState } from 'react';
 
 function Copyright(props) {
   return (
@@ -30,6 +31,11 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignUp() {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -82,6 +88,8 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   fullWidth
                   id="email"
@@ -92,6 +100,8 @@ export default function SignUp() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                   fullWidth
                   name="password"
@@ -109,10 +119,11 @@ export default function SignUp() {
               </Grid>
             </Grid>
             <Button
-              type="submit"
+              type='submit'
               fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              variant='contained'
+              color='primary'
+              
             >
               Sign Up
             </Button>

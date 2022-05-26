@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar() {
   const classes = useStyles();
   const [{basket, user}, dispatch] = useStateValue();
-  const history = useHistory();
+  const history = useHistory(); 
 
   const handleAuth = () => {
     if (user) {

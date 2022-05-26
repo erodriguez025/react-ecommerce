@@ -5,7 +5,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import logo from '../assests/logo.jpg'
+import logo2 from '../assests/logo2.jpg'
 import { ShoppingCart } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 import { Link, useHistory } from 'react-router-dom';
@@ -57,7 +57,7 @@ export default function Navbar() {
           <Link to="/">
             <IconButton>
               <img 
-                src={logo}
+                src={logo2}
                 alt='Comerce.js'
                 height='25px'
                 className={classes.image} 

@@ -54,10 +54,14 @@ export default function Navbar() {
           <Typography variant="h6" color="textPrimary" component="p">
             Hello Guest
           </Typography>
-          <div className={classes.button} >       
-            <Button variant="outlined">
-              <strong>Sign in</strong>
-            </Button>
+          <div className={classes.button} >  
+
+            <Link to="/signin">     
+              <Button variant="outlined">
+                <strong>Sign in</strong>
+              </Button>
+            </Link>
+
             <Link to="checkout-page">
               <IconButton aria-label='show cart items' color="inherit">
                 <Badge badgeContent={basket?.length} color="secondary">
